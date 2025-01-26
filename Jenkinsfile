@@ -89,10 +89,12 @@ pipeline {
         stage('Deploy to k8s'){
             steps{
                 script{
+                    withCredentials([aws(credentialsId: 'your-aws-credentials-id')]) {
                     sh 'kubectl apply -f deploymentservice.yml'
+                }
                 }
             }
         }
     }
-
 }
+
