@@ -89,7 +89,7 @@ pipeline {
         stage('Deploy to k8s'){
             steps{
                 script{
-                    withCredentials([aws(credentialsId: 'your-aws-credentials-id')]) {
+                    withCredentials([aws(credentialsId: 'AWS ID')]) {
                     sh 'kubectl apply -f deploymentservice.yml'
                 }
                 }
